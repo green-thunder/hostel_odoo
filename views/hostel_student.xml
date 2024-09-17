@@ -7,9 +7,9 @@
         <field name="view_mode">tree,form</field>
     </record>
 
-    <record id="hostel_category_tree" model="ir.ui.view">
-        <field name="name">hostel.category.tree</field>
-        <field name="model">hostel.category</field>
+    <record id="hostel_student_tree" model="ir.ui.view">
+        <field name="name">hostel.student.tree</field>
+        <field name="model">hostel.student</field>
         <field name="arch" type="xml">
             <tree string="">
                 <field name="name" />

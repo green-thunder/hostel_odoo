@@ -11,7 +11,7 @@ class HostelCategory(models.Model):
     parent_id = fields.Many2one('hostel.category', string='Parent Category', ondelete='restrict', index=True)
     parent_path = fields.Char(index=True, unaccent=False)
 
-    child_ids = fields.One2many('hostel_category', 'parent_id', string='Child categories')
+    child_ids = fields.One2many('hostel.category', 'parent_id', string='Child categories')
 
 
     @api.constrains('parent_id')
