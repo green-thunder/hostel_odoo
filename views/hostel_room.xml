@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="hostel_room_action" model="ir.actions.act_window">
+        <field name="name">Hostel room</field>
+        <field name="res_model">hostel.room</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <record id="hostel_room_tree" model="ir.ui.view">
+        <field name="name">hostel.room.tree</field>
+        <field name="model">hostel.room</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="name" />
+                <field name="room_num" />
+                <field name="floor_num" />
+                <field name="rent_amount" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="hostel_room_form" model="ir.ui.view">
+        <field name="name">hostel.room.form</field>
+        <field name="model">hostel.room</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="room_num" />
+                        <field name="floor_num" />
+                        <field name="rent_amount" />
+                        <field name="currency_id" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+</odoo>

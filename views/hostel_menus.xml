@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem 
+        id="hostel_main_menu" 
+        name="Hostel" 
+        sequence="1"/>
+
+    <menuitem 
+        id="hostel_type_menu" 
+        name="Hostel" 
+        action="hostel.hostel_action" 
+        groups="hostel.group_hostel_manager" 
+        parent="hostel_main_menu" 
+        sequence="1"/>
+
+    <menuitem
+        id="hostel_room_menu"
+        name="Rooms"
+        action="hostel.hostel_room_action"
+        groups="hostel.group_hostel_manager"
+        parent="hostel_main_menu"
+        sequence="2"/>
+    
+
+</odoo>

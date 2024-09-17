@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="hostel_amenities_action" model="ir.actions.act_window">
+        <field name="name">Hostel amenities</field>
+        <field name="res_model">hostel.amenities</field>
+        <field name="view_mode">tree,form</field>            
+    </record>
+
+    <record id="hostel_amenities_tree" model="ir.ui.view">
+        <field name="name">hostel.amenities.tree</field>
+        <field name="model">hostel.amenities</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="name" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="hostel_amenities_form" model="ir.ui.view">
+        <field name="name">hostel.amenities.form</field>
+        <field name="model">hostel.amenities</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <field name="name" required=True/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+</odoo>
