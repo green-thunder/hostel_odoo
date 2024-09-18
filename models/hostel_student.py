@@ -13,5 +13,7 @@ class HostelStudent(models.Model):
     active = fields.Boolean('Active', default=True, help='Activate/Deactivate hostel record')
     room_id = fields.Many2one('hostel.room', 'Room', help='Select hostel room')
 
+    hostel_id = fields.Many2one('hostel.hostel', related='room_id.hostel_id')
+
     
 
