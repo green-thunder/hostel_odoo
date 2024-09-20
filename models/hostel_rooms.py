@@ -4,6 +4,7 @@ from datetime import timedelta
 
 class HostelRoom(models.Model):
     _name = 'hostel.room'
+    _inherit = ['base.archive']
 
     _sql_constraints = [
         ('room_no_unique', 'unique(room_num)', 'Room number must be unique!')
