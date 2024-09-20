@@ -35,6 +35,10 @@
                         <field name="currency_id" />
                     </group>
                 </sheet>
+                <button name='make_available' string='Make available' type='object'/>
+                <button name='make_closed' string='Make borrowed' type='object'/>
+                <field name="state" widget='statusbar' />
+
             </form>
         </field>
     </record>

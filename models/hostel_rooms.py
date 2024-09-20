@@ -45,6 +45,12 @@ class HostelRoom(models.Model):
     duration = fields.Integer('Duration', compute='_compute_check_duration', inverse='_inverse_duration',
                               help='Enter duration of living')
     
+    state = fields.Selection([
+        ('draft', 'Unavailable'),
+        ('available', 'Available'),
+        ('closed', 'Closed'),
+    ], 'State', default='draft')
+    
 
     @api.constrains('rent_amount')
     def _check_rent_amount(self):
@@ -74,3 +80,28 @@ class HostelRoom(models.Model):
 
         for rec in self:
             rec.availability = rec.student_per_room - len(rec.student_ids)
+
+
+    @api.model
+    def is_allowed_transition(self, old_state, new_state):
+        allowed = [('draft', 'available'),
+                   ('available', 'closed'),
+                   ('closed', 'draft')]
+        
+        return (old_state, new_state) in allowed
+    
+    def change_state(self, new_state):
+        for room in self:
+            if room.is_allowed_transition(room.state, new_state):
+                room.state = new_state
+            else:
+                continue
+
+    def make_available(self):
+        self.change_state('available')
+    
+    def make_closed(self):
+        self.change_state('closed')
+
+
+        
