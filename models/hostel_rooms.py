@@ -1,6 +1,7 @@
 from odoo import models, fields, api, _
-from odoo.exceptions import ValidationError
+from odoo.exceptions import ValidationError, UserError
 from datetime import timedelta
+from odoo.tools.translate import _
 class BaseArchive(models.AbstractModel):
     _name = 'base.archive'
     active = fields.Boolean(default=True)
@@ -103,7 +104,9 @@ class HostelRoom(models.Model):
             if room.is_allowed_transition(room.state, new_state):
                 room.state = new_state
             else:
-                continue
+                msg = _('Moving from %s to %s is not allowed') % (room.state, new_state)
+                raise UserError(msg)
+
 
     def make_available(self):
         self.change_state('available')
